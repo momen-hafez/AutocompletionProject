@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Autocomplete Search Box | CodingNepal</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+    <!-- Import tfjs-vis -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis@1.0.2/dist/tfjs-vis.umd.min.js"></script>
+    <!-- Import visual frameworks -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  </head>
+  <body style="background-image:url('google.jpg'); 
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;"
+  >        
+    <div class="wrapper">
+      <div class="search-input">
+        <a href="" target="_blank" hidden></a>
+        <input type="text" placeholder="Type to search..">
+        <div class="autocom-box">
+          <!-- here list are inserted from javascript -->
+        </div>
+        <div class="icon"><i class="fas fa-search"></i></div>
+      </div>
+    </div>
+    <div class="buttons">
+      <div class="col-2_">
+        <button class="btn dataset btn-secondary btn-sm" style="cursor:pointer; 
+        margin-bottom:10px; color: black; background-color:#d8a686; margin-left: -34rem;" type="button" onclick="document.getElementById('file').click()"> 
+          <i class="fa fa-upload" aria-hidden="true"></i>
+         Dataset &nbsp;&nbsp;
+        </button>
+        <br>
+        <button class="btn tokenizer btn-secondary btn-sm" style="cursor:pointer;color: black; background-color:#d8a686;margin-left: -34rem;" type="button" onclick="document.getElementById('file2').click()"> 
+          <i class="fa fa-upload" aria-hidden="true"></i>
+          Tokenizer
+        </button>
+
+        <input style="display:none;"type="file" id="file" >
+        <input style="display:none;"type="file" id="file2" >
+
+      </div>
+    </div>
+    <input class="btn btn-secondary btn-block mt-3" type="button" id="train" value="Train" style = "width: 50%;color: black; background-color:#d8a686;">
+      <span class="spinner-grow spinner-grow" style="display:none" id="status" aria-hidden="true"></span>
+    </div>
+   
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.11.2"> </script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.1.0/dist/tf.min.js"></script> -->
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script> -->
+    <!-- <script src="tf.min.js"></script> -->
+    <script src="tf2.min.js"></script>
+
+     <script src="require.js"></script>
+     <!-- <script src="r.js"></script> -->
+
+     <script src="auto.js"></script> 
+  </body>
+</html>

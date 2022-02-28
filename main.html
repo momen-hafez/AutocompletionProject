@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Auto-complete</title>
+  <meta charset="utf-8">
+  <!-- Import TensorFlow.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+  <!-- Import tfjs-vis -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis@1.0.2/dist/tfjs-vis.umd.min.js"></script>
+  <!-- Import visual frameworks -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+<body class="">
+  <div class="container p-0">
+    <div class="container p-0" >
+      <header >
+        <nav class="navbar navbar-dark bg-dark rounded">
+          <a class="navbar-brand">
+            <i class="fas fa-comment"></i>
+            <strong>Auto-complete</strong>
+          </a>
+        </nav>
+      </header>
+    </div>
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col">
+          <label class="form-label">Input Text</label>
+          <input class="form-control" type="input" id="pred_features" pattern="^[a-z]*$">
+        </div>
+        <div class="col">
+          <label class="form-label">Predicted Text</label>
+          <input class="form-control" type="input" id="pred_labels" disabled>
+        </div>
+      </div>
+    <div>
+    <div class="card mt-3 bg-light">
+      <h5 class="card-header">Training Parameters</h5>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-2">
+            <label>Max word length</label>
+          </div>
+          <div class="col-10"> 
+            <input type="number" id="max_len" onchange="max_len=parseInt(this.value);document.getElementById('pred_features').maxLength=parseInt(this.value)" min=1>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-2">
+            <label>Epochs</label>
+          </div>
+          <div class="col-10"> 
+            <input type="number" id="epochs" onchange="epochs=parseInt(this.value)" min=1>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-2">
+            <label>Batch Size</label>
+          </div>
+          <div class="col-10"> 
+            <input type="number" id="batch_size" onchange="batch_size=parseInt(this.value)" min=1>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-2">
+            <button class="btn btn-secondary btn-sm" style="cursor:pointer;" type="button" onclick="document.getElementById('file').click()"> 
+              <i class="fa fa-upload" aria-hidden="true"></i>
+             Dataset
+            </button>
+            <input style="display:none;"type="file" id="file" >
+          </div>
+          <div class="col-10"> 
+            <label id="file_name">Supported format: csv, tsv, txt.</label>
+            <label id="file2_name">Supported format: csv, tsv, txt.</label>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+    <input class="btn btn-secondary btn-block mt-3" type="button" id="train" value="Train">
+    <div class="d-flex justify-content-center mt-3" onclick="showVizer()">
+      <span class="spinner-grow spinner-grow" style="display:none" id="status" aria-hidden="true"></span>
+    </div>
+    <div class="float-right">
+      <a href="https://www.youtube.com/user/chirpieful">
+        <i class="fab fa-youtube text-danger" aria-hidden="true"></i>
+      </a>
+      <a href="https://ohyicong.medium.com/">
+        <i class="fab fa-medium text-dark" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</body>
+<!-- main script file -->
+<script src="autocomplete.js"> </script>
+
+</html>
